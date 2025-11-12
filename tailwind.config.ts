@@ -47,6 +47,13 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        "risk-low": "hsl(var(--risk-low))",
+        "risk-medium": "hsl(var(--risk-medium))",
+        "risk-high": "hsl(var(--risk-high))",
+        "gradient-start": "hsl(var(--gradient-start))",
+        "gradient-end": "hsl(var(--gradient-end))",
+        "mental-health-bg": "hsl(var(--mental-health-bg))",
+        "mental-health-border": "hsl(var(--mental-health-border))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
