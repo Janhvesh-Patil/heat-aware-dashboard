@@ -32,7 +32,7 @@ const Index = () => {
       <div className="container mx-auto px-4 py-8 max-w-7xl">
         <TabNavigation activeTab={activeTab} onTabChange={setActiveTab} />
         
-        <div className="mb-8">
+        <div className="mb-8 transition-opacity duration-300 ease-in-out">
           {activeTab === 'city' ? (
             <SearchBar
               onSearch={handleSearch}

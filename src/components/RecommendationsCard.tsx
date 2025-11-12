@@ -41,8 +41,8 @@ const RecommendationsCard = ({ prediction, weatherData }: RecommendationsCardPro
         <Phone className="h-4 w-4 text-red-600" />
         <AlertDescription className="text-sm text-red-900 dark:text-red-100">
           <p className="font-semibold mb-1">Emergency Contacts:</p>
-          <p>Ambulance: <span className="font-bold">102</span></p>
-          <p>National Health Helpline: <span className="font-bold">1800-180-1104</span></p>
+          <p>Ambulance: <a href="tel:102" className="font-bold hover:underline">102</a></p>
+          <p>National Health Helpline: <a href="tel:1800-180-1104" className="font-bold hover:underline">1800-180-1104</a></p>
         </AlertDescription>
       </Alert>
     </Card>

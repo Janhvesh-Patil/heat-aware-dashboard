@@ -1,5 +1,5 @@
 import { Card } from '@/components/ui/card';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine, ReferenceArea } from 'recharts';
 import type { WeatherData } from '@/types/weather';
 import { formatDate } from '@/utils/weatherUtils';
 
@@ -23,7 +23,24 @@ const TemperatureChart = ({ weatherData }: TemperatureChartProps) => {
       
       <ResponsiveContainer width="100%" height={300}>
         <LineChart data={chartData}>
+          <defs>
+            <linearGradient id="colorGreen" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="5%" stopColor="#e8f5e9" stopOpacity={0.8}/>
+              <stop offset="95%" stopColor="#e8f5e9" stopOpacity={0.8}/>
+            </linearGradient>
+            <linearGradient id="colorYellow" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="5%" stopColor="#fff9c4" stopOpacity={0.8}/>
+              <stop offset="95%" stopColor="#fff9c4" stopOpacity={0.8}/>
+            </linearGradient>
+            <linearGradient id="colorRed" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="5%" stopColor="#ffebee" stopOpacity={0.8}/>
+              <stop offset="95%" stopColor="#ffebee" stopOpacity={0.8}/>
+            </linearGradient>
+          </defs>
           <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+          <ReferenceArea y1={0} y2={35} fill="url(#colorGreen)" fillOpacity={1} />
+          <ReferenceArea y1={35} y2={40} fill="url(#colorYellow)" fillOpacity={1} />
+          <ReferenceArea y1={40} y2={100} fill="url(#colorRed)" fillOpacity={1} />
           <XAxis
             dataKey="date"
             stroke="hsl(var(--muted-foreground))"
@@ -32,6 +49,7 @@ const TemperatureChart = ({ weatherData }: TemperatureChartProps) => {
           <YAxis
             stroke="hsl(var(--muted-foreground))"
             fontSize={12}
+            domain={[0, 50]}
             label={{ value: 'Temperature (°C)', angle: -90, position: 'insideLeft' }}
           />
           <Tooltip
@@ -45,13 +63,13 @@ const TemperatureChart = ({ weatherData }: TemperatureChartProps) => {
             y={35}
             stroke="hsl(var(--risk-medium))"
             strokeDasharray="3 3"
-            label={{ value: 'Caution', position: 'right' }}
+            label={{ value: 'Caution', position: 'right', fill: 'hsl(var(--muted-foreground))' }}
           />
           <ReferenceLine
             y={40}
             stroke="hsl(var(--risk-high))"
             strokeDasharray="3 3"
-            label={{ value: 'Danger', position: 'right' }}
+            label={{ value: 'Danger', position: 'right', fill: 'hsl(var(--muted-foreground))' }}
           />
           <Line
             type="monotone"

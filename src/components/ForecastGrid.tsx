@@ -32,7 +32,7 @@ const ForecastGrid = ({ weatherData }: ForecastGridProps) => {
           return (
             <Card
               key={date}
-              className="p-4 text-center hover:shadow-lg transition-shadow duration-200 hover:-translate-y-1"
+              className="p-4 text-center transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
             >
               <p className="text-sm font-medium mb-2">{formatDate(date)}</p>
               <p className="text-2xl font-bold mb-3">{temp.toFixed(0)}°C</p>

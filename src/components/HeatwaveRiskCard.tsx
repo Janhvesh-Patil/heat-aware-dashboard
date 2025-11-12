@@ -72,8 +72,11 @@ const HeatwaveRiskCard = ({ weatherData, prediction, loading }: HeatwaveRiskCard
       </div>
 
       <div className="text-center space-y-4 py-6">
-        <Badge className={`${riskColor} text-white text-xl px-6 py-3 text-base`}>
-          {riskEmoji} {prediction.risk} Risk
+        <Badge className={`${riskColor} text-white text-xl px-6 py-3 text-base ${prediction.risk === 'High' ? 'animate-pulse-glow' : ''}`}>
+          {prediction.risk === 'Low' && '🟢 '}
+          {prediction.risk === 'Medium' && '🟡 '}
+          {prediction.risk === 'High' && '🔴 '}
+          {prediction.risk} Risk
         </Badge>
         
         <div className="text-sm text-muted-foreground">
