@@ -1,7 +1,7 @@
 import axios from 'axios';
 import type { WeatherData, RiskPrediction, SensorData, GeocodingResult } from '@/types/weather';
 
-const FLASK_API_URL = 'http://localhost:5000';
+const FLASK_API_URL = 'https://climawell-api.onrender.com';
 const OPEN_METEO_URL = 'https://api.open-meteo.com/v1';
 const GEOCODING_URL = 'https://geocoding-api.open-meteo.com/v1';
 
